@@ -1,0 +1,26 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-size: 20px;
+    --font-size-titre: 25px;
+    --taille-W: 10vw;
+    --taille-H: 5vh;
+}
+
+.btn_tire_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--taille-W);
+    height: var(--taille-H);
+    background-color: black;
+    margin-top: 1vw;
+}
+
+.btn_tire_card p {
+    color: white;
+}
