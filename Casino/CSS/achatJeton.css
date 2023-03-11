@@ -1,0 +1,17 @@
+.main {
+    width: 20%;
+    max-height: 20%;
+}
+
+.btn-achatJ {
+    text-decoration: none;
+    color: black;
+}
+
+.div-achat {
+    margin: 5%;
+    padding: 10px;
+    border: 1px solid #ff1867;
+    width: 100%;
+    height: 100%;
+}
