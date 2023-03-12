@@ -3,11 +3,16 @@
 //blackjack mise * 3:2
 //écrire les règles
 // si la carte est déja sortie alors changé
+// (As ne se recalcule pas si on dépasse 21) si ne marche pas essayer de prendre si le 1er As est déja décendu a 1 alors les autres aussi //
 
 const card_player = []
 const card_croupier = []
 const cardP = []
 const cardC = []
+const asP  = []
+const asC = []
+let as;
+let as2;
 let tirage = 0
 let tirageC = 0
 let nb_pointsP = 0
@@ -94,7 +99,7 @@ function aff_points(affPC) {
         nb = count_points(card_croupier[1][3], false)
         nb_pointsC = nb_pointsC - nb;
         console.log(nb_pointsC = nb_pointsC - nb) // enlever quand la solution sera trouver
-        console.log("Points du croupier : " + nb_pointsC  + "        " + nb)
+        console.log("Points du croupier : " + nb_pointsC)
         console.log("Points du player : " + nb_pointsP)
         nb_pointsC = nb_pointsC + nb
     }
@@ -107,6 +112,19 @@ function aff_card_player(isStrart) {
         j = j + 2
         console.log("Player couleur : " + card_player[1][j] + "    //  number : " + card_player[1][j+1])
     } else {
+        for(var o = 0; o < asP.length; o++) {
+            if(card_player[o][asP[o]] === "as") {} 
+            else {
+                as.push(card_player[o].indexOf("as"))
+                asP.push(as)
+                console.log(nb_pointsP + " tester avec as - 10 si on est a 21")
+                if(nb_pointsP > 21) {
+                    nb_pointsP = nb_pointsP - 10  
+                    console.log(nb_pointsP + " tester avec as - 10 si on est a 21 //// 2")       
+                }
+            }
+        }
+
         for(var i = 0; i < tirage+1; i++) {
             console.log("Player couleur : " + card_player[i][j] + "   //   number : " + card_player[i][j+1])
             j = j + 2
@@ -127,11 +145,24 @@ function aff_card_croupier(isStart) {
     if(isStart) {
         console.log("Croupier couleur : " + card_croupier[0][j] + "    //  number : " + card_croupier[0][j+1])
         j = j + 2
-        console.log("Croupier couleur : " + card_croupier[1][j] + "    //  number : " + card_croupier[1][j+1])
-        //console.log("Croupier couleur : masquer " + "    //  number : masquer")
+        //console.log("Croupier couleur : " + card_croupier[1][j] + "    //  number : " + card_croupier[1][j+1])
+        console.log("Croupier couleur : masquer " + "    //  number : masquer")
     } else {
+        for(var o = 0; o < asC.length; o++) {
+            if(card_croupier[o][asC[o]] === "as") {} 
+            else {
+                as.push(card_croupier[o].indexOf("as"))
+                asC.push(as)
+                console.log(nb_pointsC + " tester avec as - 10 si on est a 21")
+                if(nb_pointsC > 21) {
+                    nb_pointsC = nb_pointsC - 10  
+                    console.log(nb_pointsC + " tester avec as - 10 si on est a 21 //// 2")       
+                }
+            }
+        }
+
         for(var i = 0; i < tirageC+1; i++) {
-            console.log("Croupier couleur : " + card_croupier[i][j] + "    //  number : " + card_croupier[i][j+1] + "   "+ nb_pointsC)
+            console.log("Croupier couleur : " + card_croupier[i][j] + "    //  number : " + card_croupier[i][j+1])
             j = j + 2
         }
         aff_points(false)
@@ -145,7 +176,7 @@ function aff_card_croupier(isStart) {
                 j = j + 2
                 random_card(false)
                 console.log("Croupier couleur : " + card_croupier[tirageC][j] + "    //  number : " + card_croupier[tirageC][j+1])
-                aff_points(false)
+                aff_points(true)
             }
         }
         condition(true)
@@ -209,6 +240,13 @@ function random_card(isPlayer) {
             console.log("Une erreur est survenu : ")
             throw(err)
     }
+
+    console.log(card_player)
+    if((card_player.includes(card_number)) || (card_player.includes(card_color)) || (card_croupier.includes(card_number)) || (card_croupier.includes(card_color))) {
+        console.log("dddddddddddddddddddddddddddddddddd")
+        //random_card(isPlayer)
+        //return
+    }
     
     if(isPlayer) {
         cardP.push(card_color)
@@ -229,9 +267,17 @@ function count_points(number_card, isP) {
     switch(number_card) {
         case "as" :
             if(isP) {
-                if(nb_pointsP + 11 > 21) {num = 1} else {num = 11}
+                if(nb_pointsP + 11 > 21) {
+                    num = 1
+                    as = card_player[card_player.length-1].length
+                    asP.push(as)
+                } else {num = 11}
             } else {
-                if(nb_pointsC + 11 > 21) {num = 1} else {num = 11}
+                if(nb_pointsC + 11 > 21) {
+                    num = 1
+                    as = card_croupier[card_croupier.length-1].length
+                    asC.push(as)
+                } else {num = 11}
             }
             break;
         case 2 :
