@@ -2,22 +2,23 @@
 //deux cartes identiques pour former deux mains séparées, ou de se coucher ("surrender") pour récupérer la moitié de sa mise.
 //blackjack mise * 3:2
 //écrire les règles
-// si la carte est déja sortie alors changé
-// (As ne se recalcule pas si on dépasse 21) si ne marche pas essayer de prendre si le 1er As est déja décendu a 1 alors les autres aussi //
+//affichage des cartes
 
 const card_player = []
 const card_croupier = []
 const cardP = []
-const cardC = []
-const asP  = []
+let cardC = []
+let asP  = []
 const asC = []
-let as;
-let as2;
 let tirage = 0
 let tirageC = 0
 let nb_pointsP = 0
 let nb_pointsC = 0
 let num = 0
+let as_used = 0;
+let as_used_croup = 0;
+let all_cards = [];
+let all_cards2 = [];
 
 function start() {
     random_card(false)
@@ -112,16 +113,10 @@ function aff_card_player(isStrart) {
         j = j + 2
         console.log("Player couleur : " + card_player[1][j] + "    //  number : " + card_player[1][j+1])
     } else {
-        for(var o = 0; o < asP.length; o++) {
-            if(card_player[o][asP[o]] === "as") {} 
-            else {
-                as.push(card_player[o].indexOf("as"))
-                asP.push(as)
-                console.log(nb_pointsP + " tester avec as - 10 si on est a 21")
-                if(nb_pointsP > 21) {
-                    nb_pointsP = nb_pointsP - 10  
-                    console.log(nb_pointsP + " tester avec as - 10 si on est a 21 //// 2")       
-                }
+        asP = []
+        for(var o = 0; o < card_player[0].length; o = o + 2) {
+            if(card_player[0][o+1] === "as") {
+                asP.push(o);
             }
         }
 
@@ -129,6 +124,15 @@ function aff_card_player(isStrart) {
             console.log("Player couleur : " + card_player[i][j] + "   //   number : " + card_player[i][j+1])
             j = j + 2
         }
+
+        for(var o = 0; o < asP.length; o++) {
+            if(nb_pointsP > 21 && as_used < asP.length) {
+                nb_pointsP = nb_pointsP - 10  
+                console.log(nb_pointsP + " tester avec as - 10 si on est a 21 //// 2")
+                as_used += 1;
+            }
+        }
+        
         if(nb_pointsP >= 21) {
             aff_points(false)
             condition(true)
@@ -148,16 +152,18 @@ function aff_card_croupier(isStart) {
         //console.log("Croupier couleur : " + card_croupier[1][j] + "    //  number : " + card_croupier[1][j+1])
         console.log("Croupier couleur : masquer " + "    //  number : masquer")
     } else {
+        asC = []
+        for(var o = 0; o < card_croupier[0].length; o = o + 2) {
+            if(card_croupier[0][o+1] === "as") {
+                asC.push(o);
+            }
+        }
+
         for(var o = 0; o < asC.length; o++) {
-            if(card_croupier[o][asC[o]] === "as") {} 
-            else {
-                as.push(card_croupier[o].indexOf("as"))
-                asC.push(as)
-                console.log(nb_pointsC + " tester avec as - 10 si on est a 21")
-                if(nb_pointsC > 21) {
-                    nb_pointsC = nb_pointsC - 10  
-                    console.log(nb_pointsC + " tester avec as - 10 si on est a 21 //// 2")       
-                }
+            if(nb_pointsP > 21 && as_used_croup < asC.length) {
+                nb_pointsC = nb_pointsC - 10  
+                console.log(nb_pointsC + " tester avec as - 10 si on est a 21 //// 2")
+                as_used_croup += 1;
             }
         }
 
@@ -185,68 +191,73 @@ function aff_card_croupier(isStart) {
 }
 
 function random_card(isPlayer) {
-    let card_color = Math.floor(Math.random() * 4) + 1;
-    let card_number = Math.floor(Math.random() * 13) + 1
+    let card_color;
+    let card_number;
 
-    switch(card_color) {
-        case 1 :
-            card_color = "coeur"
+    while (true) {
+        card_color = Math.floor(Math.random() * 4) + 1;
+        card_number = Math.floor(Math.random() * 13) + 1;
+    
+        switch (card_color) {
+          case 1:
+            card_color = "coeur";
             break;
-        case 2 :
-            card_color = "losange"
+          case 2:
+            card_color = "losange";
             break;
-        case 3 :
-            card_color = "trefle"
+          case 3:
+            card_color = "trefle";
             break;
-        case 4 :
-            card_color = "pique"
+          case 4:
+            card_color = "pique";
             break;
-        default :
-            console.log("Une erreur est survenu : ")
-            throw(err)
-    }
-    switch(card_number) {
-        case 1 :
-            card_number = "as"
+          default:
+            console.log("Une erreur est survenue : ");
+            throw err;
+        }
+    
+        switch (card_number) {
+          case 1:
+            card_number = "as";
             break;
-        case 2 :
+          case 2:
             break;
-        case 3 :
+          case 3:
             break;
-        case 4 :
+          case 4:
             break;
-        case 5 :
+          case 5:
             break;
-        case 6 :
+          case 6:
             break;
-        case 7 :
+          case 7:
             break;
-        case 8 :
+          case 8:
             break;
-        case 9 :
+          case 9:
             break;
-        case 10 :
+          case 10:
             break;
-        case 11 :
-            card_number = "valet"
+          case 11:
+            card_number = "valet";
             break;
-        case 12 :
-            card_number = "dame"
+          case 12:
+            card_number = "dame";
             break;
-        case 13 :
-            card_number = "roi"
+          case 13:
+            card_number = "roi";
             break;
-        default :
-            console.log("Une erreur est survenu : ")
-            throw(err)
-    }
-
-    console.log(card_player)
-    if((card_player.includes(card_number)) || (card_player.includes(card_color)) || (card_croupier.includes(card_number)) || (card_croupier.includes(card_color))) {
-        console.log("dddddddddddddddddddddddddddddddddd")
-        //random_card(isPlayer)
-        //return
-    }
+          default:
+            console.log("Une erreur est survenue : ");
+            throw err;
+        }
+    
+        if (!all_cards.includes(card_color) || !all_cards2.includes(card_number)) {
+          all_cards.push(card_color);
+          all_cards2.push(card_number);
+          break;
+        }
+      }
     
     if(isPlayer) {
         cardP.push(card_color)
