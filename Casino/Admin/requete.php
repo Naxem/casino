@@ -2,11 +2,6 @@
     session_start();
     require('config.php');
 
-    if(isset($_POST['btn-deconexion'])){
-        $_SESSION["status"] = "";
-        header('Location: ../index.php');
-    }//fin btn-déco
-
     if(isset($_GET['achat'])){
         $requete = achat_jeton($_GET['achat']);
         $res=$requete->fetch();
@@ -85,7 +80,7 @@
 
     function uptade_jeton($jeton, $niv){
         $pdo=connexion_bdd();
-        $sql="UPDATE casino.player SET jeton='".$jeton."', niv='".$niv."' WHERE id=1;";
+        $sql="UPDATE player SET jeton='".$jeton."', niv='".$niv."' WHERE id=1;";
         $stmt=$pdo->query($sql);
         return $stmt;
     }//fin requete

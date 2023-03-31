@@ -124,11 +124,11 @@
                 </ul>
             </center>
         </div>
-    </div>
-
+    </div> 
     <div class="mentionLegal">
         <center>
             <a href="infoJeux.html">Infos Jeux</a>
+            <p>tout droit réserver Maxens Telle 2023</p>
         </center>
     </div>
 </footer>
