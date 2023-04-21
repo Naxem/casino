@@ -3,6 +3,7 @@
 //blackjack mise * 3:2
 //écrire les règles
 //affichage des cartes
+//server
 
 const card_player = []
 const card_croupier = []

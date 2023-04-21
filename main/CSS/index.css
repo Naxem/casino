@@ -1,0 +1,83 @@
+* , *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {background: #DEC9E9;}
+
+.div-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+.div-btn a {
+    font-size: max(3vw, 20px);
+    position: relative;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1vw;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+.div-btn2 {margin-left: 10%;}
+
+.div-btn a:hover {
+    cursor: pointer;
+    letter-spacing: 0.25vw;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+
+.div-btn a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #DEC9E9;
+}
+
+a span {
+    position: relative;
+    z-index: 1;
+}
+
+.div-jeton label,
+.div-niv label {
+    font-size: max(1.5vw, 16px);
+}
+
+.div-btnA {
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.div-btnA a {
+    font-size: max(1.5vw, 16px);
+    position: relative;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.0vw;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.div-btnA a:hover {
+    cursor: pointer;
+    letter-spacing: 0.02vw;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 20px var(--clr);
+}
+
+.div-btnA a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #DEC9E9;
+}
