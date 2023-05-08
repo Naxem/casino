@@ -18,6 +18,9 @@
     <div class="btn_tire_card"><p onclick="tireCard()">tirer</p></div>
     <div class="btn_tire_card"><p onclick="stopCard()">rester</p></div>
     <div class="btn_tire_card"><p onclick="start()">Start</p></div>
+
+    <section id="card" class="s-card">
+    </section>
     <script src="blackjack.js"></script>
 </body>
 </html>

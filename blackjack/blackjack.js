@@ -5,6 +5,7 @@
 //affichage des cartes
 //server
 
+const d_card = document.getElementById("card")
 const card_player = []
 const card_croupier = []
 const cardP = []
@@ -16,10 +17,10 @@ let tirageC = 0
 let nb_pointsP = 0
 let nb_pointsC = 0
 let num = 0
-let as_used = 0;
-let as_used_croup = 0;
-let all_cards = [];
-let all_cards2 = [];
+let as_used = 0
+let as_used_croup = 0
+let all_cards = []
+let all_cards2 = []
 
 function start() {
     random_card(false)
@@ -107,12 +108,78 @@ function aff_points(affPC) {
     }
 }
 
+function img_card(tab_couleur, tab_number) {
+    let number, couleur = null
+    switch(tab_couleur) {
+        case "coeur":
+            couleur = "coeur"
+            break;
+        case "losange":
+            couleur = "carro"
+            break;
+        case "trefle":
+            couleur = "trefle"
+            break;
+        case "pique":
+            couleur = "pique"
+            break;
+    }
+
+    switch(tab_number) {
+        case "as":
+            number = 1
+            break;
+        case 2:
+            number = 2
+            break;
+        case 3:
+            number = 3
+            break;
+        case 4:
+            number = 4
+            break;
+        case 5:
+            number = 5
+            break;
+        case 6:
+            number = 6
+            break;
+        case 7:
+            number = 7
+            break;
+        case 8:
+            number = 8
+            break;
+        case 9:
+            number = 9
+            break;
+        case 10:
+            number = 10
+            break;
+        case "valet":
+            number = 11
+            break;
+        case "dame":
+            number = 12
+            break;
+        case "roi":
+            number = 13
+            break;
+    }
+    let img = number + "-" + couleur + ".png"
+    return img
+}
+
 function aff_card_player(isStrart) {
     let j = 0
     if(isStrart) {
         console.log("Player couleur : " + card_player[0][j] + "    //  number : " + card_player[0][j+1])
+        let img_aff = img_card(card_player[0][j], card_player[0][j+1])
+        d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
         j = j + 2
+        img_aff = img_card(card_player[1][j], card_player[1][j+1])
         console.log("Player couleur : " + card_player[1][j] + "    //  number : " + card_player[1][j+1])
+        d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
     } else {
         asP = []
         for(var o = 0; o < card_player[0].length; o = o + 2) {
@@ -123,6 +190,8 @@ function aff_card_player(isStrart) {
 
         for(var i = 0; i < tirage+1; i++) {
             console.log("Player couleur : " + card_player[i][j] + "   //   number : " + card_player[i][j+1])
+            img_aff = img_card(card_player[i][j], card_player[i][j+1])
+            d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
             j = j + 2
         }
 
