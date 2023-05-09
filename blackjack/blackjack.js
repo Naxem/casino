@@ -6,6 +6,7 @@
 //server
 
 const d_card = document.getElementById("card")
+const d_pointsPlayer = document.getElementById("d-pointsPlayer")
 const card_player = []
 const card_croupier = []
 const cardP = []
@@ -175,11 +176,11 @@ function aff_card_player(isStrart) {
     if(isStrart) {
         console.log("Player couleur : " + card_player[0][j] + "    //  number : " + card_player[0][j+1])
         let img_aff = img_card(card_player[0][j], card_player[0][j+1])
-        d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
+        d_card.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
         j = j + 2
         img_aff = img_card(card_player[1][j], card_player[1][j+1])
         console.log("Player couleur : " + card_player[1][j] + "    //  number : " + card_player[1][j+1])
-        d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
+        d_card.innerHTML += '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
     } else {
         asP = []
         for(var o = 0; o < card_player[0].length; o = o + 2) {
@@ -194,7 +195,7 @@ function aff_card_player(isStrart) {
             if(i === 0) {
                 d_card.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
             } else {
-                d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
+                d_card.innerHTML += '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
             }
             j = j + 2
         }
@@ -209,6 +210,7 @@ function aff_card_player(isStrart) {
         
         if(nb_pointsP >= 21) {
             aff_points(false)
+            d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
             condition(true)
         } else {
             aff_points(false)

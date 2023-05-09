@@ -15,11 +15,17 @@
     <title>BlackJack</title>
 </head>
 <body>
-    <div class="btn_tire_card"><p onclick="tireCard()">tirer</p></div>
-    <div class="btn_tire_card"><p onclick="stopCard()">rester</p></div>
-    <div class="btn_tire_card"><p onclick="start()">Start</p></div>
+    <section class="s-btn">
+        <div class="btn_tire_card"><p onclick="tireCard()">tirer</p></div>
+        <div class="btn_tire_card"><p onclick="stopCard()">rester</p></div>
+        <div class="btn_tire_card"><p onclick="start()">Start</p></div>
+    </section>
 
-    <section id="card" class="s-card">
+
+    <section class="s-card">
+        <div id="card" class="d-card">
+        </div>
+        <div id="d-pointsPlayer"></div>
     </section>
     <script src="blackjack.js"></script>
 </body>
