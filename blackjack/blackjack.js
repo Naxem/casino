@@ -191,7 +191,11 @@ function aff_card_player(isStrart) {
         for(var i = 0; i < tirage+1; i++) {
             console.log("Player couleur : " + card_player[i][j] + "   //   number : " + card_player[i][j+1])
             img_aff = img_card(card_player[i][j], card_player[i][j+1])
-            d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
+            if(i === 0) {
+                d_card.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
+            } else {
+                d_card.insertAdjacentHTML("beforeBegin",'<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>') //affichage card
+            }
             j = j + 2
         }
 

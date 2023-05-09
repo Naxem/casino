@@ -24,3 +24,20 @@
 .btn_tire_card p {
     color: white;
 }
+
+.s-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.d-card {
+    display: flex;
+
+}
+
+.d-card img {
+    width: 10vw;
+    height: 30vh;
+}
