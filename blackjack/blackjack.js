@@ -7,6 +7,8 @@
 
 const d_card = document.getElementById("card")
 const d_pointsPlayer = document.getElementById("d-pointsPlayer")
+const d_cardCroupier = document.getElementById("cardCroupier")
+const d_pointsCroupier = document.getElementById("d-pointsCroupier")
 const card_player = []
 const card_croupier = []
 const cardP = []
@@ -36,6 +38,7 @@ function start() {
     aff_card_croupier(true)
 
     aff_points(false)
+    d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
 
     if((nb_pointsP == 21) && (nb_pointsC != 21)) {
         console.log("Blacjack")
@@ -203,7 +206,7 @@ function aff_card_player(isStrart) {
         for(var o = 0; o < asP.length; o++) {
             if(nb_pointsP > 21 && as_used < asP.length) {
                 nb_pointsP = nb_pointsP - 10  
-                console.log(nb_pointsP + " tester avec as - 10 si on est a 21 //// 2")
+                //console.log(nb_pointsP + " tester avec as - 10 si on est a 21 //// 2")
                 as_used += 1;
             }
         }
@@ -214,6 +217,7 @@ function aff_card_player(isStrart) {
             condition(true)
         } else {
             aff_points(false)
+            d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
             condition(false)
         }
     }
@@ -224,9 +228,12 @@ function aff_card_croupier(isStart) {
     let end = false
     if(isStart) {
         console.log("Croupier couleur : " + card_croupier[0][j] + "    //  number : " + card_croupier[0][j+1])
+        img_aff = img_card(card_croupier[0][j], card_croupier[0][j+1])
+        d_cardCroupier.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
         j = j + 2
         //console.log("Croupier couleur : " + card_croupier[1][j] + "    //  number : " + card_croupier[1][j+1])
         console.log("Croupier couleur : masquer " + "    //  number : masquer")
+        d_cardCroupier.innerHTML += '<div class="d-card"><img src="ressources/card/0.png" alt="dos de carte"></div>' //affichage card
     } else {
         asC = []
         for(var o = 0; o < card_croupier[0].length; o = o + 2) {
@@ -238,16 +245,19 @@ function aff_card_croupier(isStart) {
         for(var o = 0; o < asC.length; o++) {
             if(nb_pointsP > 21 && as_used_croup < asC.length) {
                 nb_pointsC = nb_pointsC - 10  
-                console.log(nb_pointsC + " tester avec as - 10 si on est a 21 //// 2")
+                //console.log(nb_pointsC + " tester avec as - 10 si on est a 21 //// 2")
                 as_used_croup += 1;
             }
         }
 
         for(var i = 0; i < tirageC+1; i++) {
             console.log("Croupier couleur : " + card_croupier[i][j] + "    //  number : " + card_croupier[i][j+1])
+            img_aff = img_card(card_croupier[i][j], card_croupier[i][j+1])
+            d_cardCroupier.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
             j = j + 2
         }
         aff_points(false)
+        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsP
         
         while(end = true) {
             if(nb_pointsC >= 17) {
@@ -258,7 +268,10 @@ function aff_card_croupier(isStart) {
                 j = j + 2
                 random_card(false)
                 console.log("Croupier couleur : " + card_croupier[tirageC][j] + "    //  number : " + card_croupier[tirageC][j+1])
+                img_aff = img_card(card_croupier[i][j], card_croupier[i][j+1])
+                d_cardCroupier.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
                 aff_points(true)
+                d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsP
             }
         }
         condition(true)

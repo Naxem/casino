@@ -21,11 +21,14 @@
         <div class="btn_tire_card"><p onclick="start()">Start</p></div>
     </section>
 
+    <section class="s-cardCroupier">
+        <div id="d-pointsCroupier"></div>
+        <div id="cardCroupier" class="d-cardCroupier"></div>
+    </section>
 
     <section class="s-card">
-        <div id="card" class="d-card">
-        </div>
         <div id="d-pointsPlayer"></div>
+        <div id="card" class="d-card"></div>
     </section>
     <script src="blackjack.js"></script>
 </body>
