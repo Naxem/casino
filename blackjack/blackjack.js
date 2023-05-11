@@ -1,4 +1,4 @@
-//Actions du joueur : en fonction de sa main, le joueur peut choisir de tirer d'autres cartes, de doubler sa mise, de se séparer ("splitter") 
+//Actions du joueur : en fonction de sa main, le joueur peut choisir de tirer d'autres cartesroupier, de doubler sa mise, de se séparer ("splitter") 
 //deux cartes identiques pour former deux mains séparées, ou de se coucher ("surrender") pour récupérer la moitié de sa mise.
 //blackjack mise * 3:2
 //écrire les règles
@@ -14,7 +14,7 @@ const card_croupier = []
 const cardP = []
 let cardC = []
 let asP  = []
-const asC = []
+let asC = []
 let tirage = 0
 let tirageC = 0
 let nb_pointsP = 0
@@ -44,9 +44,9 @@ function start() {
         console.log("Blacjack")
     } else if ((nb_pointsP != 21) && (nb_pointsC == 21)) {
         console.log("Perdu")
-    } else if ((nb_pointsP == 21) && (nb_pointsC == 21)) [
+    } else if ((nb_pointsP == 21) && (nb_pointsC == 21)) {
         console.log("Push")
-    ]
+    }
 }
 
 function tireCard() {
@@ -69,7 +69,7 @@ function condition(isEnd) {
             //alert("Tu a perdu !")
             console.log("perdu"+ nb_pointsC + "//" + nb_pointsP)
             //location.reload()
-        } else if((nb_pointsC == nb_pointsP) && (nb_pointsC > 21)) {
+        } else if((nb_pointsC == nb_pointsP) && (nb_pointsC <= 21) && (nb_pointsP <= 21)) {
             //alert("égalité !")
             console.log("égalité"+nb_pointsC + "//" + nb_pointsP)
             //location.reload()
@@ -108,6 +108,7 @@ function aff_points(affPC) {
         console.log(nb_pointsC = nb_pointsC - nb) // enlever quand la solution sera trouver
         console.log("Points du croupier : " + nb_pointsC)
         console.log("Points du player : " + nb_pointsP)
+        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsC
         nb_pointsC = nb_pointsC + nb
     }
 }
@@ -257,7 +258,7 @@ function aff_card_croupier(isStart) {
             j = j + 2
         }
         aff_points(false)
-        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsP
+        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsC
         
         while(end = true) {
             if(nb_pointsC >= 17) {
@@ -268,10 +269,10 @@ function aff_card_croupier(isStart) {
                 j = j + 2
                 random_card(false)
                 console.log("Croupier couleur : " + card_croupier[tirageC][j] + "    //  number : " + card_croupier[tirageC][j+1])
-                img_aff = img_card(card_croupier[i][j], card_croupier[i][j+1])
-                d_cardCroupier.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage card
+                img_aff = img_card(card_croupier[tirageC][j], card_croupier[tirageC][j+1])
+                d_cardCroupier.innerHTML = '<div class="d-card"><img src="ressources/card/' + img_aff + '" alt="' + img_aff +'"></div>' //affichage cardp
                 aff_points(true)
-                d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsP
+                d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsC
             }
         }
         condition(true)

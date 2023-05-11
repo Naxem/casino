@@ -16,9 +16,9 @@
 </head>
 <body>
     <section class="s-btn">
-        <div class="btn_tire_card"><p onclick="tireCard()">tirer</p></div>
-        <div class="btn_tire_card"><p onclick="stopCard()">rester</p></div>
-        <div class="btn_tire_card"><p onclick="start()">Start</p></div>
+        <div class="btn_tire_card" onclick="tireCard()"><p>tirer</p></div>
+        <div class="btn_tire_card" onclick="stopCard()"><p>rester</p></div>
+        <div class="btn_tire_card" onclick="start()"><p>Start</p></div>
     </section>
 
     <section class="s-cardCroupier">
