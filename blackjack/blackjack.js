@@ -2,6 +2,7 @@
 //deux cartes identiques pour former deux mains séparées
 //blackjack mise * 3
 //Langue (en,fr)
+//finir les conditions de victoire
 //server
 
 const d_card = document.getElementById("card")
@@ -37,7 +38,7 @@ function start() {
     aff_card_croupier(true)
 
     aff_points(false)
-    d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
+    d_pointsPlayer.innerHTML = pointsPlayer + nb_pointsP
 
     if((nb_pointsP == 21) && (nb_pointsC != 21)) {
         console.log("Blacjack")
@@ -111,7 +112,7 @@ function aff_points(affPC) {
         console.log(nb_pointsC = nb_pointsC - nb) // enlever quand la solution sera trouver
         //console.log("Points du croupier : " + nb_pointsC)
         //console.log("Points du player : " + nb_pointsP)
-        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsC
+        d_pointsCroupier.innerHTML = pointsCroupier + nb_pointsC
         nb_pointsC = nb_pointsC + nb
     }
 }
@@ -217,11 +218,11 @@ function aff_card_player(isStrart) {
         
         if(nb_pointsP >= 21) {
             aff_points(false)
-            d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
+            d_pointsPlayer.innerHTML = pointsPlayer + nb_pointsP
             condition(true)
         } else {
             aff_points(false)
-            d_pointsPlayer.innerHTML = 'Nombre de points = ' + nb_pointsP
+            d_pointsPlayer.innerHTML = pointsPlayer + nb_pointsP
             condition(false)
         }
     }
@@ -269,7 +270,7 @@ function aff_card_croupier(isStart) {
             j = j + 2
         }
         aff_points(false)
-        d_pointsCroupier.innerHTML = 'Points Croupier = ' + nb_pointsC
+        d_pointsCroupier.innerHTML = pointsCroupier + nb_pointsC
         
         /*Condition de fin de la boucle*/
         while(end = true) {

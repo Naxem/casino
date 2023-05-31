@@ -12,14 +12,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="blackjack.css">
     <!-- Autre -->
-    <title>BlackJack</title>
+    <title id="title">BlackJack</title>
 </head>
 <body>
     <section class="s-btn">
-        <div class="btn_tire_card" onclick="tireCard()"><p>Hit</p></div>
-        <div class="btn_tire_card" onclick="stopCard()"><p>Stand</p></div>
-        <div class="btn_tire_card" onclick="start()"><p>Start</p></div>
-        <div class="btn_aff_regle" onclick="affRegle()"><p>Rule</p></div>
+        <div class="btn_tire_card" onclick="tireCard()"><p id="hit">Hit</p></div>
+        <div class="btn_tire_card" onclick="stopCard()"><p id="stand">Stand</p></div>
+        <div class="btn_tire_card" onclick="start()"><p id="start">Start</p></div>
+        <div class="btn_aff_regle" onclick="affRegle()"><p id="rule">Rule</p></div>
     </section>
 
     <section class="s-cardCroupier">
@@ -31,6 +31,7 @@
         <div id="d-pointsPlayer"></div>
         <div id="card" class="d-card"></div>
     </section>
+    <script src="langue.js"></script>
     <script src="blackjack.js"></script>
 </body>
 </html>
