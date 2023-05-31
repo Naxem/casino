@@ -17,7 +17,8 @@ body {
 }
 
 /*btn jeux*/
-.btn_tire_card {
+.btn_tire_card,
+.btn_aff_regle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +34,8 @@ body {
     flex-direction: column;
 }
 
-.btn_tire_card p {
+.btn_tire_card p,
+.btn_aff_regle p {
     color: white;
 }
 

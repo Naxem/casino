@@ -1,7 +1,7 @@
-//Actions du joueur : en fonction de sa main, le joueur peut choisir de tirer d'autres cartesroupier, de doubler sa mise, de se séparer ("splitter") 
-//deux cartes identiques pour former deux mains séparées, ou de se coucher ("surrender") pour récupérer la moitié de sa mise.
-//blackjack mise * 3:2
-//écrire les règles
+//Actions du joueur : en fonction de sa main, le joueur peut choisisr faire un doubler, de se séparer ("splitter") 
+//deux cartes identiques pour former deux mains séparées
+//blackjack mise * 3
+//Langue (en,fr)
 //server
 
 const d_card = document.getElementById("card")
@@ -56,6 +56,10 @@ function tireCard() {
 
 function stopCard() {
     aff_card_croupier()
+}
+
+function affRegle() {
+    window.location.href = "/casino/blackjack/regle_BJ"; // Redirige vers une autre URL
 }
 
 function condition(isEnd) {

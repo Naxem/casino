@@ -16,9 +16,10 @@
 </head>
 <body>
     <section class="s-btn">
-        <div class="btn_tire_card" onclick="tireCard()"><p>tirer</p></div>
-        <div class="btn_tire_card" onclick="stopCard()"><p>rester</p></div>
+        <div class="btn_tire_card" onclick="tireCard()"><p>Hit</p></div>
+        <div class="btn_tire_card" onclick="stopCard()"><p>Stand</p></div>
         <div class="btn_tire_card" onclick="start()"><p>Start</p></div>
+        <div class="btn_aff_regle" onclick="affRegle()"><p>Rule</p></div>
     </section>
 
     <section class="s-cardCroupier">
