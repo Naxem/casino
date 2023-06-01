@@ -1,14 +1,16 @@
 //Actions du joueur : en fonction de sa main, le joueur peut choisisr faire un doubler, de se séparer ("splitter") 
 //deux cartes identiques pour former deux mains séparées
 //blackjack mise * 3
-//Langue (en,fr)
-//finir les conditions de victoire
+//tableau des scores
+//système de mise, gain
 //server
 
 const d_card = document.getElementById("card")
 const d_pointsPlayer = document.getElementById("d-pointsPlayer")
 const d_cardCroupier = document.getElementById("cardCroupier")
 const d_pointsCroupier = document.getElementById("d-pointsCroupier")
+const pop_up = document.getElementById("pop-up")
+const btn_Fermer_pop_up = document.getElementById("btnFermer")
 const card_player = []
 const card_croupier = []
 const cardP = []
@@ -67,39 +69,46 @@ function condition(isEnd) {
     if(isEnd) {
         if(nb_pointsC > 21) {
             //alert("Tu a gagner !")
+            pop_up.style.display = "block"
+            popUp(1)
             console.log("gagner"+nb_pointsC + "//" + nb_pointsP)
-            //location.reload()
         } else if((nb_pointsC > nb_pointsP) && (nb_pointsC <= 21)) {
             //alert("Tu a perdu !")
+            pop_up.style.display = "block"
+            popUp(2)
             console.log("perdu"+ nb_pointsC + "//" + nb_pointsP)
-            //location.reload()
         } else if((nb_pointsC == nb_pointsP) && (nb_pointsC <= 21) && (nb_pointsP <= 21)) {
             //alert("égalité !")
+            pop_up.style.display = "block"
+            popUp(0)
             console.log("égalité"+nb_pointsC + "//" + nb_pointsP)
-            //location.reload()
         } else if((nb_pointsC < nb_pointsP) && (nb_pointsP <= 21)) {
             //alert("Tu a gagner !")
+            pop_up.style.display = "block"
+            popUp(1)
             console.log("gagner"+nb_pointsC + "//" + nb_pointsP)
-            //location.reload()
         } else if((nb_pointsC < nb_pointsP) && (nb_pointsP > 21)) {
             //alert("Tu a perdu !")
+            pop_up.style.display = "block"
+            popUp(2)
             console.log("sauter"+ nb_pointsC + "//" + nb_pointsP)
-            //location.reload()
         } else {
             console.log("Une erreur est survenu : Condition non pris en charge")
             location.reload()
         }
     }
     if((nb_pointsP > 21)) {
-        //alert("Tu a perdu !" + nb_pointsP)
-        console.log("tu as sauter" + nb_pointsP)
-        //location.reload()
+        pop_up.style.display = "block"
+        popUp(2)
     }
-    if(nb_pointsP == 21) {
-        //alert("Tu a gagnier !" + nb_pointsP)
-        console.log("Tu as gagner" + nb_pointsP)
-        //location.reload()
+    if(nb_pointsP == 21) { //Blacjack 🔥
+        pop_up.style.display = "block"
+        popUp(1)
     }
+    btn_Fermer_pop_up.addEventListener("click", function() {
+        pop_up.style.display = "none"
+        location.reload()
+    });
 }
 
 function aff_points(affPC) {

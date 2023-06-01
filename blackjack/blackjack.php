@@ -31,6 +31,18 @@
         <div id="d-pointsPlayer"></div>
         <div id="card" class="d-card"></div>
     </section>
+
+    <section class="section-pop-up">
+        <div id="pop-up" class="popup">
+            <div id="test" class="popup-content">
+                <h2 id="h2-popup">Default</h2>
+                <p id="sentence-popup">Default sentence</p>
+                <button id="btnFermer">Close</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Script JS-->
     <script src="langue.js"></script>
     <script src="blackjack.js"></script>
 </body>
