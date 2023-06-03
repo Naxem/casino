@@ -4,6 +4,7 @@
 //tableau des scores
 //système de mise, gain
 //server
+//fix traduction fr btn || Blacjack ne coupe pas la partie instand
 
 const d_card = document.getElementById("card")
 const d_pointsPlayer = document.getElementById("d-pointsPlayer")

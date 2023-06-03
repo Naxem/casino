@@ -37,7 +37,7 @@
                 <a href="index.php" aria-current="home-page">Accueil</a>
                 <a href="poker.html" aria-current="Poker">Poker</a>
                 <a href="blackjack.html" aria-current="Blackjack">Blackjack</a>
-                <a href="login.php" aria-current="Login">
+                <a href="Admin/login?conexion=1" aria-current="Login">
                     <?php if ( $_SESSION["status"] != "") {echo $_SESSION["status"];} else {echo "Login";} ?>
                 </a>
             </div>

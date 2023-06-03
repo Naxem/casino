@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Titillium+Web:wght@200&display=swap');
+* {
+    overflow-x: none;
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-y:hidden;
+}
+
+:root{
+    --c-bleu:#0353A4;
+    --c-noir:#1e1e1e;
+    --s-shadow:-2px 2px 10px 5px #4e4e4e49;
+}
+.globale{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin:0;    
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin:auto;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    background-color: var(--c-bleu);
+    box-shadow: var(--s-shadow);
+    align-items: center;
+    font-family: 'Iceland' , cursive;
+    color:#FCF300;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 25px;
+    gap:15px;
+}
+
+form input{
+    width: 100%;
+    max-width: 400px;
+    padding:15px;
+    height: 40px;
+    margin:auto;
+
+}
+
+
+form .bouton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+    font-size: 20px;
+    margin:auto;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease ;
+    font-family: 'Courier New', Courier, monospace;
+    padding:0;
+}
+
+form .bouton:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease ;
+}
+
+.div_captcha {
+    width: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.div_captcha .chiffre {
+    position: absolute;
+    right: 10px;
+    padding: 20px;
+    background-color: var(--c-bleu);
+    color: #FFFFFF;
+    border-radius: 5px;
+    z-index: 3;
+    text-decoration: line-through 2px black;
+    font-weight: 500;
+}
