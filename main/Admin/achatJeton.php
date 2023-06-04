@@ -27,11 +27,11 @@
                     <span></span>
             </button>
             <div class="navlinks-container">
-                <a href="../index.php" aria-current="home-page">Accueil</a>
-                <a href="../poker.html" aria-current="Poker">Poker</a>
-                <a href="../blackjack.html" aria-current="Blackjack">Blackjack</a>
-                <a href="../login.php" aria-current="Login">
-                    <?php if ( $_SESSION["status"] != "") {echo $_SESSION["status"];} else {echo "Login";} ?>
+                <a href="../index" aria-current="home-page">Accueil</a>
+                <a href="../resources/pages/poker" aria-current="Poker">Poker</a>
+                <a href="../../blackjack/blackjack" aria-current="Blackjack">Blackjack</a>
+                <a href="../login" aria-current="Login">
+                    <?php if ( $_SESSION["status"] != "") {echo $_SESSION["pseudo"];} else {echo "Login";} ?>
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
     <div class="main">
         <div class="div-achat">
             <?php 
-                if ($_SESSION["niv"] == 0) {echo "Vous avez pas assez de niv !";}
+                if ($_SESSION["niveau"] == 0) {echo "Vous avez pas assez de niv !";}
                 else {
             ?>
             <a href="?achat=1000" class="btn-achatJ">
@@ -55,7 +55,7 @@
 
         <div class="div-achat">
             <?php 
-                if ($_SESSION["niv"] < 2) {echo "Vous avez pas assez de niv !";}
+                if ($_SESSION["niveau"] < 2) {echo "Vous avez pas assez de niv !";}
                 else {
             ?>
             <a href="?achat=5000" class="btn-achatJ">
@@ -68,7 +68,7 @@
 
         <div class="div-achat">
             <?php 
-                if ($_SESSION["niv"] < 3) {echo "Vous avez pas assez de niv !";}
+                if ($_SESSION["niveau"] < 3) {echo "Vous avez pas assez de niv !";}
                 else {
             ?>
             <a href="?achat=15000" class="btn-achatJ">
@@ -81,7 +81,7 @@
 
         <div class="div-achat">
             <?php 
-                if ($_SESSION["niv"] < 5) {echo "Vous avez pas assez de niv !";}
+                if ($_SESSION["niveau"] < 5) {echo "Vous avez pas assez de niv !";}
                 else {
             ?>
             <a href="?achat=50000" class="btn-achatJ">
@@ -94,7 +94,7 @@
 
         <div class="div-achat">
             <?php 
-                if ($_SESSION["niv"] < 10) {echo "Vous avez pas assez de niv !";}
+                if ($_SESSION["niveau"] < 10) {echo "Vous avez pas assez de niv !";}
                 else {
             ?>
             <a href="?achat=150000" class="btn-achatJ">

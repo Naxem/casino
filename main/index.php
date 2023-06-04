@@ -34,11 +34,11 @@
                     <span></span>
             </button>
             <div class="navlinks-container">
-                <a href="index.php" aria-current="home-page">Accueil</a>
+                <a href="index" aria-current="home-page">Accueil</a>
                 <a href="poker.html" aria-current="Poker">Poker</a>
-                <a href="blackjack.html" aria-current="Blackjack">Blackjack</a>
+                <a href="../blackjack/blackjack" aria-current="Blackjack">Blackjack</a>
                 <a href="Admin/login?conexion=1" aria-current="Login">
-                    <?php if ( $_SESSION["status"] != "") {echo $_SESSION["status"];} else {echo "Login";} ?>
+                    <?php if ( $_SESSION["status"] != "") {echo $_SESSION["pseudo"];} else {echo "Login";} ?>
                 </a>
             </div>
         </div>
@@ -59,7 +59,7 @@
 
         <div class="div-niv">
             <label>Niv :</label>
-            <label><?php if ( $_SESSION["status"] != "") {echo $_SESSION["niv"];} else {echo "0";}?></label>
+            <label><?php if ( $_SESSION["status"] != "") {echo $_SESSION["niveau"];} else {echo "0";}?></label>
         </div>
 
         <div class="div-btn">
@@ -68,7 +68,7 @@
             </div>
     
             <div class="div-btn2 item">
-                <a href="blackjack.html" style="--clr:#ff1867"><span>Blackjack</span></a>
+                <a href="../blackjack/blackjack" style="--clr:#ff1867"><span>Blackjack</span></a>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
                 <h3>Jeux</h3>
                 <ul class="services-list">
                     <li><span class="span-footer"><a href="poker.html">Poker</a></span></li>
-                    <li><span class="span-footer"><a href="blackjack.html">Blackjack</a></span></li>
+                    <li><span class="span-footer"><a href="../blackjack/blackjack">Blackjack</a></span></li>
                 </ul>
             </center>
         </div>

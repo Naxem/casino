@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 
-                <input type="submit" name="btn-creer" value="Créer" class="bouton">
+                <input type="submit" name="btn-crea-user" value="Créer" class="bouton">
                 <a href="login?conexion=1">Conexion</a>
             </form>
         </div>
