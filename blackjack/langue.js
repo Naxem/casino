@@ -48,6 +48,8 @@ if (userLanguage === "fr") {
     translations = translationsFr;
 } else if (userLanguage === "en") {
     translations = translationsEn;
+} else {
+    translations = translationsEn;
 }
 
 // Modifier le contenue de la page

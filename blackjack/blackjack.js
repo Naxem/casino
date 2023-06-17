@@ -4,7 +4,7 @@
 //tableau des scores
 //système de mise, gain
 //server
-//fix traduction fr btn || Blacjack ne coupe pas la partie instand
+//baisser la taille des images quand plus de 4 tirage pour les C et 5 pour le P
 
 const d_card = document.getElementById("card")
 const d_pointsPlayer = document.getElementById("d-pointsPlayer")

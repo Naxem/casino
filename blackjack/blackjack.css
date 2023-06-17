@@ -9,6 +9,11 @@
     --font-size-titre: 25px;
     --taille-W: 10vw;
     --taille-H: 5vh;
+
+    --font-size-Phone: 12px;
+    --font-size-titre-Phone: 20px;
+    --taille-W-Phone: 15vw;
+    --taille-H-Phone: 8vh;
 }
 
 body {
@@ -114,9 +119,9 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-  }
+}
   
-  .popup-content {
+.popup-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -124,21 +129,74 @@ body {
     background-color: white;
     padding: 20px;
     text-align: center;
-  }
+}
   
-  .popup-content h2 {
+.popup-content h2 {
     font-size: 24px;
     margin-bottom: 10px;
-  }
+}
   
-  .popup-content p {
+.popup-content p {
     margin-bottom: 20px;
-  }
+}
   
-  .popup-content button {
+.popup-content button {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
-  }  
+}  
+
+/*Media query*/
+@media screen and (max-width: 800px) {
+/*Carte Croupier*/
+#d-pointsCroupier {
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.d-cardCroupier img {
+    width: 20vw;
+    height: 20vh;
+}
+
+.s-cardCroupier {
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*btn jeux*/
+.btn_tire_card,
+.btn_aff_regle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--taille-W-Phone);
+    height: var(--taille-H-Phone);
+    background-color: black;
+    margin-top: 1vw;
+    cursor: pointer;
+}
+
+.s-btn {
+    margin: 10px;
+    flex-direction: column;
+}
+
+/*Carte Joueur*/
+#d-pointsPlayer {
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.d-card img {
+    width: 20vw;
+    height: 20vh;
+}
+
+.s-card {
+    flex-direction: column;
+    justify-content: center;
+}
+}
