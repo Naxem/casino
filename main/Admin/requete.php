@@ -61,7 +61,7 @@
 
     function verification_connect(){
         $pdo=connexion_bdd();
-        $sql="SELECT connect FROM player where id='".$_SESSION["id"];
+        $sql="SELECT connect FROM player where id='".$_SESSION["idP"];
         $stmt=$pdo->query($sql);
         if ($stmt == "0") {
             $verif = false;

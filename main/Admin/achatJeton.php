@@ -30,7 +30,7 @@
                 <a href="../index" aria-current="home-page">Accueil</a>
                 <a href="../resources/pages/poker" aria-current="Poker">Poker</a>
                 <a href="../../blackjack/blackjack" aria-current="Blackjack">Blackjack</a>
-                <a href="../login" aria-current="Login">
+                <a href="../Admin/login?conexion=1" aria-current="Login">
                     <?php if ( $_SESSION["status"] != "") {echo $_SESSION["pseudo"];} else {echo "Login";} ?>
                 </a>
             </div>

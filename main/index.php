@@ -1,6 +1,13 @@
 <?php
-    session_start();
-    if (isset($_SESSION["status"])) {}
+    require('Admin/requete.php');
+    if (isset($_SESSION["status"])) {
+        $getInfosPLayer = get_player($_SESSION["idP"]);
+        $infosPlayer = $getInfosPLayer->fetchAll();
+        foreach($infosPlayer as $res) {
+            $_SESSION["niveau"] = $res["niv"];
+            $_SESSION["jeton"] = $res["jeton"];
+        }
+    }
     else {
         $_SESSION["status"] = "";
         $_SESSION["error"] = "0";
